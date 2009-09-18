@@ -9,10 +9,7 @@
     <script type="text/javascript" charset="utf-8" src="./jquery.domsearch.js"></script>
     <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
-        $('#search').keypress(function() {
-          var proxy = $(this);
-          setTimeout(function() { $('#fruits').domsearch(proxy.val()) }, 100)
-        })
+        $('#search').domsearch('#fruits tbody', { minimumScore: 0.01 })
       })
     </script>
     <link rel="stylesheet" href="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css" media="screen" charset="utf-8">
@@ -56,6 +53,26 @@
             <td>Pear</td>
             <td>0.2kg</td>
           </tr>          
+          <tr>
+            <td>Passionfruit</td>
+            <td>0.05kg</td>
+          </tr>
+          <tr>
+            <td>Apricot</td>
+            <td>0.02kg</td>
+          </tr>
+          <tr>
+            <td>Lime</td>
+            <td>0.01kg</td>
+          </tr>
+          <tr>
+            <td>Imbu</td>
+            <td>0.02kg</td>
+          </tr>
+          <tr>
+            <td>Indonesian Guavas</td>
+            <td>0.3kg</td>
+          </tr>
         </tbody>
       </table>
     </div>
