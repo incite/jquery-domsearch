@@ -33,7 +33,6 @@ $(function($) {
       setTimeout(
         function() {
           if (field.val() == '') {
-            console.log('empty')
             originalOrder.show().appendTo(target)
           } else {
             search(field.val(), target[0], options)            
