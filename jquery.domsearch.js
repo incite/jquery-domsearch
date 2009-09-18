@@ -6,6 +6,8 @@ $(function($) {
 
   function init(element, searchIn, options) {
     var target = $(searchIn);    
+    var defaults = { unit: undefined, criteria: false, minimumScore: 0.5 }
+    var options = $.extend(defaults, options);
     
     // Guess options.unit
     if (!options.unit) {
@@ -40,10 +42,7 @@ $(function($) {
     })
   }
 
-  function search(query, searchIn, options) {
-    var defaults = { unit: undefined, criteria: false, minimumScore: 0.5 }
-    var options = $.extend(defaults, options);
-      
+  function search(query, searchIn, options) {  
     $($.grep($(searchIn).find(options.unit), function(row) {
       var text;
       switch(options.criteria.constructor) {
