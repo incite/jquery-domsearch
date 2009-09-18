@@ -28,11 +28,12 @@ $(function($) {
     
     var originalOrder = target.find(options.unit);
 
-    $(element).keypress(function() {
+    $(element).keydown(function() {
       var field = $(this);
       setTimeout(
         function() {
           if (field.val() == '') {
+            console.log('empty')
             originalOrder.show().appendTo(target)
           } else {
             search(field.val(), target[0], options)            
