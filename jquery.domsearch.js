@@ -28,7 +28,8 @@ $(function($) {
     
     var originalOrder = target.find(options.unit);
 
-    $(element).keydown(function() {
+    $(element).keydown(function(event) {
+      if (event.keyCode == 9) return true; // TAB
       var field = $(this);
       setTimeout(
         function() {
