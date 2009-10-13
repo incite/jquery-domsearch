@@ -35,8 +35,9 @@ $(function($) {
           if (field.val() == '') {
             originalOrder.show().appendTo(target)
           } else {
-            search(field.val(), target[0], options)            
+            search(field.val(), target[0], options);
           }
+          if (typeof options.onkeydown == 'function') options.onkeydown(field);
         }, 
       100)
     })
@@ -62,14 +63,17 @@ $(function($) {
       return $(row).data('domsearch.score') < options.minimumScore;
     })
       .sort(function(a, b) { return $(a).data('domsearch.score') < $(b).data('domsearch.score') }))
-      .appendTo(searchIn)
-      .hide();
+        .appendTo(searchIn)
+        .hide();
   }
   
   $.fn.domsearch = function(query, options) {
-    this.each(function() { new $.domsearch(this, query, options); return this })
+    if (!$(this).data('domsearch.enabled')) {
+      $(this).data('domsearch.enabled', true);
+      return this.each(function() { new $.domsearch(this, query, options) });
+    }
   }
-})
+});
 
 // Then e.g.:
 // $('#my_text_field').domsearch('#table_with_stuff')
